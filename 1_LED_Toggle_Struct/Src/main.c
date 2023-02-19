@@ -1,3 +1,5 @@
+#include <stdint.h>
+
 #define PERIPH_BASE               (0x40000000UL)
 #define AHB1_PERIPH_OFFSET        (0x20000UL)
 #define AHB1_PERIPH_BASE          (PERIPH_BASE + AHB1_PERIPH_OFFSET)
@@ -22,19 +24,22 @@
 #define PIN5                      (1U << 5)
 #define LED_PIN                   (PIN5)
 
-#define __IO                      (volatile)
+typedef struct RCC_typdef{
+  volatile uint32_t CR;       //RCC clock controll register
+
+} RCC_typdef;
 
 typedef struct GPIO_typdef 
 {
-  __IO uint32_t MODER;    //mode register
-  __IO uint32_t OTYPER;   //output type register  
-  __IO uint32_t OSPEEDR;  //output speed register
-  __IO uint32_t PUPDR;    //pull up , pull down register
-  __IO uint32_t IDR;      //input data register
-  __IO uint32_t ODR;      //output data register
-  __IO uint32_t BSRR;     //bit set / reset register
-  __IO uint32_t LCKR;     //configuration lock register
-  __IO uint32_t AFR[2];   //alternate function config register
+  volatile uint32_t MODER;    //mode register                       0x00
+  volatile uint32_t OTYPER;   //output type register                0x04
+  volatile uint32_t OSPEEDR;  //output speed register               0x08
+  volatile uint32_t PUPDR;    //pull up , pull down register        0x0C
+  volatile uint32_t IDR;      //input data register                 0x10
+  volatile uint32_t ODR;      //output data register                0x14
+  volatile uint32_t BSRR;     //bit set / reset register
+  volatile uint32_t LCKR;     //configuration lock register
+  volatile uint32_t AFR[2];   //alternate function config register
 } GPIO_typdef;
 
 
