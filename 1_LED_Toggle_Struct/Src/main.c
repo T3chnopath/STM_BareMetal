@@ -26,15 +26,15 @@
 
 typedef struct GPIO_typdef 
 {
-  __IO uint32_t MODER;
-  __IO uint32_t OTYPER;
-  __IO uint32_t OSPEEDR;
-  __IO uint32_t PUPDR;
-  __IO uint32_t IDR;
-  __IO uint32_t ODR;
-  __IO uint32_t BSRR;
-  __IO uint32_t LCKR;
-  __IO uint32_t AFR[2];
+  __IO uint32_t MODER;    //mode register
+  __IO uint32_t OTYPER;   //output type register  
+  __IO uint32_t OSPEEDR;  //output speed register
+  __IO uint32_t PUPDR;    //pull up , pull down register
+  __IO uint32_t IDR;      //input data register
+  __IO uint32_t ODR;      //output data register
+  __IO uint32_t BSRR;     //bit set / reset register
+  __IO uint32_t LCKR;     //configuration lock register
+  __IO uint32_t AFR[2];   //alternate function config register
 } GPIO_typdef;
 
 
